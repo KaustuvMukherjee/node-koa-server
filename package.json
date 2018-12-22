@@ -1,0 +1,63 @@
+{
+  "name": "node-koa-server-1.0.0",
+  "version": "1.0.0",
+  "description": "Basic node-koa server.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --fix .",
+    "stub": "node $NODE_DEBUG_OPTION ./src/openAPI/generateStub.js | eslint --fix .",
+    "start": "node index.js",
+    "local-start": "node $NODE_DEBUG_OPTION index.js",
+    "test": "jest"
+  },
+  "author": "Your name <abc@xyz.com>",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "6.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/controllers/*.js",
+      "src/listeners/*.js",
+      "src/middlewares/*.js",
+      "src/routers/*.js",
+      "src/services/*.js"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "morgan": "^1.9.1",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "directory-exists": "^2.0.1",
+    "eslint": "^5.10.0",
+    "file-exists": "^5.0.1",
+    "husky": "^1.2.1",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
+    "supertest": "^3.3.0",
+    "swagger-parser": "^6.0.2"
+  }
+}

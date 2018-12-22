@@ -1,0 +1,7 @@
+---
+applications:
+- name: node-koa-server-1.0.0
+  host: node-koa-server
+  memory: 512MB
+  health-check-type: http
+  health-check-http-endpoint: /health

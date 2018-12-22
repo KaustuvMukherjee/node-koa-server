@@ -1,0 +1,201 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "",
+    "title": ""
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "x-controller": "healthController",
+        "x-service": "healthService",
+        "operationId": "getHealth",
+        "x-validationOperationId": "validateHealthRequest",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["status", "lastUpdatedAt"],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "UP"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sample": {
+      "get": {
+        "x-controller": "sampleController",
+        "x-service": "sampleService",
+        "operationId": "sampleGetOperation",
+        "x-validationOperationId": "sampleValidateGetRequest",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["status"],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "x-controller": "sampleController",
+        "x-service": "sampleService",
+        "operationId": "samplePutOperation",
+        "x-validationOperationId": "sampleValidatePutRequest",
+        "parameters": [
+          {
+            "name": "pathParam",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "param1"
+            }
+          },
+          {
+            "name": "queryParam",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "param2"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["bodyParam1", "bodyParam2"],
+                "properties": {
+                  "bodyParam1": {
+                    "type": "string",
+                    "example": "param3"
+                  },
+                  "bodyParam2": {
+                    "type": "string",
+                    "example": "param4"
+                  },
+                  "bodyParam3": {
+                    "type": "string",
+                    "example": "param5"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["status"],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Record updated."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "x-controller": "sampleController",
+        "x-service": "sampleService",
+        "operationId": "samplePostOperation",
+        "x-validationOperationId": "sampleValidatePostRequest",
+        "parameters": [
+          {
+            "name": "pathParam",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "param1"
+            }
+          },
+          {
+            "name": "queryParam",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "param2"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["bodyParam3", "bodyParam4"],
+                "properties": {
+                  "bodyParam1": {
+                    "type": "string",
+                    "example": "param3"
+                  },
+                  "bodyParam2": {
+                    "type": "string",
+                    "example": "param4"
+                  },
+                  "bodyParam3": {
+                    "type": "string",
+                    "example": "param5"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["status"],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Record inserted."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
